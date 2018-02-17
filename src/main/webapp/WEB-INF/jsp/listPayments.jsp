@@ -51,7 +51,7 @@
 </div>
 <div class="text-center">
     <a href="/payment/new" class="btn btn-primary" role="button">Add Payment</a>
-    <a href="/home" class="btn btn-primary" role="button">Main Manu</a>
+    <a href="/home" class="btn btn-primary" role="button">Main Menu</a>
 </div>
 </body>
 </html>

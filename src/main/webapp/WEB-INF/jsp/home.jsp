@@ -1,10 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ page session="false" %>
-
-<html>
 <head>
     <title>Terminal</title>
 

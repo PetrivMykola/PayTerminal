@@ -47,7 +47,7 @@
 </div>
 <div class="text-center">
     <a href="/user/list" class="btn btn-primary" role="button">List Users</a>
-    <a href="/home" class="btn btn-primary" role="button">Main Manu</a>
+    <a href="/home" class="btn btn-primary" role="button">Main Menu</a>
 </div>
 
 </body>

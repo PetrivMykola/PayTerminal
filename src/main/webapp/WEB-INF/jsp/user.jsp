@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <title>Show All Users</title>
+    <title>Show User</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +38,7 @@
 
 </div>
 <div class="text-center">
-<a href="/home" class="btn btn-primary" role="button">Main Manu</a>
+<a href="/home" class="btn btn-primary" role="button">Main Menu</a>
 </div>
 
 

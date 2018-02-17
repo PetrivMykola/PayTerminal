@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 /**
- * Controller for {@link net.petriv.terminal.model.User}'s pages.
+ * Controller for {@link net.petriv.terminal.model.Payment}'s pages.
  *
  * @author Mykola Petriv
  * @version 1.0

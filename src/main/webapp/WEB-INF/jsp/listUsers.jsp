@@ -47,8 +47,8 @@
 </div>
 
 <div class="text-center">
-    <a href="/user/newUser" class="btn btn-primary" role="button">Add User</a>
-    <a href="/home" class="btn btn-primary" role="button">Main Manu</a>
+    <a href="/user/new" class="btn btn-primary" role="button">Add User</a>
+    <a href="/home" class="btn btn-primary" role="button">Main Menu</a>
 </div>
 </body>
 </html>

@@ -41,7 +41,7 @@ public class UserController {
         return "listUsers";
     }
 
-    @RequestMapping(value = "/newUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
     public ModelAndView newUser(ModelAndView model) {
         User user = new User();
         model.addObject(user);
@@ -49,20 +49,19 @@ public class UserController {
         return model;
     }
 
-    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute User user) {
         userService.save(user);
         return "redirect:/user/list";
     }
 
-    @RequestMapping("/remove/{id}")
+    @RequestMapping(value = "/remove/{id}")
     public String removeBook(@PathVariable("id") Long id) {
         userService.deleteById(id);
-
         return "redirect:/user/list";
     }
 
-    @RequestMapping("edit/{id}")
+    @RequestMapping(value = "edit/{id}")
     public ModelAndView editUser(@PathVariable("id") Long id, ModelAndView model) {
         User user = userService.findById(id);
         model.addObject(user);
@@ -76,7 +75,6 @@ public class UserController {
         Set<Payment> payments = user.getPayments();
         model.addAttribute("user", user);
         model.addAttribute("payments", payments);
-
         return "paymentsForUser";
     }
 

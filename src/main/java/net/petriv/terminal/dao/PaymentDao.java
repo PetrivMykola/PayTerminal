@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-@Component
 public interface PaymentDao extends JpaRepository<Payment, Long> {
 }

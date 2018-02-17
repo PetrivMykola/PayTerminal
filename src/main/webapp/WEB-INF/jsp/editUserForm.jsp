@@ -4,13 +4,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Update User</title>
 </head>
 <body>
 
 <h1>Update  User</h1>
 
-<form:form action="/user/saveUser" method="post" modelAttribute="user">
+<form:form action="/user/save" method="post" modelAttribute="user">
     <table>
         <tr>
             <td>
@@ -20,15 +20,15 @@
             </td>
             <td>
                 <form:input path="id" readonly="true" size="8" disabled="true"/>
-                <form:hidden path="id"/>
+                <form:hidden path="id"></form:hidden>
             </td>
         </tr>
         <tr>
-            <td>First_Name:</td>
+            <td><form:label path="firstName">First_Name:</form:label></td>
             <td><form:input path="firstName" /></td>
         </tr>
         <tr>
-            <td>Last_Name:</td>
+            <td><form:label  path="lastName">Last_Name:</form:label></td>
             <td><form:input path="lastName" /></td>
         </tr>
         <tr>
