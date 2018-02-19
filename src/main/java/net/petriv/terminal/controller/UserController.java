@@ -32,20 +32,20 @@ public class UserController {
     public String userview(@PathVariable("id") Long id, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
-      return "user";
+      return "user/user";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listUsers(Model model) {
         model.addAttribute("users", userService.findAll());
-        return "listUsers";
+        return "user/listUsers";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public ModelAndView newUser(ModelAndView model) {
         User user = new User();
         model.addObject(user);
-        model.setViewName("userForm");
+        model.setViewName("user/userForm");
         return model;
     }
 
@@ -65,7 +65,7 @@ public class UserController {
     public ModelAndView editUser(@PathVariable("id") Long id, ModelAndView model) {
         User user = userService.findById(id);
         model.addObject(user);
-        model.setViewName("editUserForm");
+        model.setViewName("user/editUserForm");
         return model;
     }
 
@@ -75,7 +75,7 @@ public class UserController {
         Set<Payment> payments = user.getPayments();
         model.addAttribute("user", user);
         model.addAttribute("payments", payments);
-        return "paymentsForUser";
+        return "user/paymentsForUser";
     }
 
 }

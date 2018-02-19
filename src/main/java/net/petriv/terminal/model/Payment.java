@@ -1,11 +1,9 @@
 package net.petriv.terminal.model;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 
 /**
- * Simple JavaBean domain object that represent a User
+ * Simple JavaBean domain object that represent a Payment
  *
  * @author Mykola Petriv
  * @version 1.0
@@ -28,7 +26,7 @@ public class Payment {
     @Column(name = "amount")
     private Long amount;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 

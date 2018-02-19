@@ -3,8 +3,6 @@ package net.petriv.terminal.controller;
 import net.petriv.terminal.model.Payment;
 import net.petriv.terminal.model.User;
 import net.petriv.terminal.service.PaymentService;
-import net.petriv.terminal.service.PaymentServiceImpl;
-import net.petriv.terminal.service.UserService;
 import net.petriv.terminal.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +34,7 @@ public class PaymentController {
     public String list(Model model) {
         List<Payment> payments = paymentService.findAll();
         model.addAttribute("payments", payments);
-        return "listPayments";
+        return "payment/listPayments";
     }
 
     @RequestMapping("/remove/{id}")
@@ -51,7 +49,7 @@ public class PaymentController {
         Payment payment = paymentService.findById(id);
         model.addObject("userList", userList);
         model.addObject(payment);
-        model.setViewName("editPaymentForm");
+        model.setViewName("payment/editPaymentForm");
         return model;
     }
 
@@ -61,7 +59,7 @@ public class PaymentController {
         List<User> userList = userService.findAll();
         model.addObject("userList", userList);
         model.addObject(payment);
-        model.setViewName("paymentForm");
+        model.setViewName("payment/paymentForm");
         return model;
     }
 

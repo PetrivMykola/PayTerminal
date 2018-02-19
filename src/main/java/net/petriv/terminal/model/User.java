@@ -1,7 +1,5 @@
 package net.petriv.terminal.model;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -26,7 +24,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user")
     private Set<Payment> payments;
 
     public User() {
