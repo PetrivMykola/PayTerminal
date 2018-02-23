@@ -28,10 +28,10 @@
         </tr>
 
         <tr>
-        Users:
-            <select name="userId">
-                <c:forEach items="${userList}" var="user">
-                    <option value="${user.id}"> ${user.lastName} </option>
+        Persons:
+            <select name="personId">
+                <c:forEach items="${personList}" var="person">
+                    <option value="${person.id}"> ${person.lastName} </option>
                 </c:forEach>
             </select> <br>
             <%--<form:select  path="id">--%>

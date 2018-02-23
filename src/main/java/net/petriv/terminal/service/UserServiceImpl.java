@@ -1,13 +1,19 @@
 package net.petriv.terminal.service;
 
+import net.petriv.terminal.dao.RoleDao;
 import net.petriv.terminal.dao.UserDao;
+import net.petriv.terminal.model.Role;
 import net.petriv.terminal.model.User;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Implementation of {@link UserService}
@@ -24,11 +30,20 @@ public class UserServiceImpl implements UserService {
     @Autowired()
     private UserDao userDao;
 
+    @Autowired
+    private RoleDao roleDao;
+
+    @Autowired
+    public PasswordEncoder bCryptPasswordEncoder;
+
     @Override
     @Transactional
     public void save(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        Set<Role> roles = new HashSet<>();
+        roles.add(roleDao.getOne (1L));
         userDao.save(user);
-        logger.info(user.getFirstName() + " successfully saved");
+        logger.info(user.getUsername() + " successfully saved");
     }
 
     @Override
@@ -45,12 +60,17 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void update(User user) {
         userDao.save(user);
-        logger.info(user.getFirstName() + " successfully updated");
+        logger.info(user.getUsername()+ " successfully updated");
     }
 
     @Override
     @Transactional
     public void deleteById(Long id) {
         userDao.delete(id);
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userDao.findByUsername(username);
     }
 }

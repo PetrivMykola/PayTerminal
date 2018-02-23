@@ -4,13 +4,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-    <title>New Payment</title>
+    <title>Update User</title>
 </head>
 <body>
 
-<h1>Update Payments</h1>
+<h1>Update  User</h1>
 
-<form:form action="/payment/save" method="post" modelAttribute="payment">
+<form:form action="/person/save" method="post" modelAttribute="person">
     <table>
         <tr>
             <td>
@@ -20,31 +20,18 @@
             </td>
             <td>
                 <form:input path="id" readonly="true" size="8" disabled="true"/>
-                <form:hidden path="id"/>
+                <form:hidden path="id"></form:hidden>
             </td>
         </tr>
         <tr>
-            <td>Payment_Name:</td>
-            <td><form:input path="name" /></td>
+            <td><form:label path="firstName">First_Name:</form:label></td>
+            <td><form:input path="firstName" /></td>
         </tr>
         <tr>
-            <td>Address:</td>
-            <td><form:input path="address" /></td>
+            <td><form:label  path="lastName">Last_Name:</form:label></td>
+            <td><form:input path="lastName" /></td>
         </tr>
         <tr>
-            <td>Amount:</td>
-            <td><form:input path="amount" /></td>
-        </tr>
-
-        <tr>
-            <td>Persons</td>
-           <td><select name="personId">
-                <c:forEach items="${personList}" var="person">
-                    <option value="${person.id}"> ${person.lastName} </option>
-                </c:forEach>
-           </select> <br> </td>
-
-        </tr>
         <tr>
             <td colspan="2">
                 <input type="submit" value="Save Changes" />
@@ -54,3 +41,4 @@
 </form:form>
 </body>
 </html>
+

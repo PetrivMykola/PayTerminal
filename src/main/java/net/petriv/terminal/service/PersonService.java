@@ -1,14 +1,14 @@
 package net.petriv.terminal.service;
 
+import net.petriv.terminal.model.Person;
 import net.petriv.terminal.model.User;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
 /**
- * Service class for{@link net.petriv.terminal.model.User}
+ * Service class for{@link Person}
  *
  * @author Mykola Petriv
  * @version 1.0
@@ -17,17 +17,16 @@ import java.util.List;
 
 @Service
 @Component
-public interface UserService {
+public interface PersonService {
 
-    void save(User user);
+    void save(Person person);
 
-    User findById(Long id);
+    Person findById(Long id);
 
-    List<User> findAll();
+    List<Person> findAll();
 
-    void update (User user);
+    void update (Person person);
 
     void deleteById(Long id);
 
-    User findByUsername(String username);
 }

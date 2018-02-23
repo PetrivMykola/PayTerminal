@@ -1,5 +1,7 @@
 package net.petriv.terminal.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 /**
@@ -11,6 +13,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "payments")
+@Data
+@EqualsAndHashCode(exclude={"person"})
 public class Payment {
 
     @Id
@@ -27,51 +31,6 @@ public class Payment {
     private Long amount;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    public Payment() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Long getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Long amount) {
-        this.amount = amount;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-
+    @JoinColumn(name = "person_id")
+    private Person person;
 }

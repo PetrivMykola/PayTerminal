@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 
 <head>
     <title>Terminal</title>
@@ -14,10 +14,10 @@
 <body>
 
 <div class="container">
-    <div class="well"><h1 align="center" style="color: rebeccapurple">Terminal</h1></div>
+    <div class="well"><h1 align="center" style="color: rebeccapurple">Welcome ${user}</h1></div>
 
     <div class="text-center">
-        <a href="/home/listUsers" class="btn btn-primary" role="button">List Users</a>
+        <a href="/home/listPersons" class="btn btn-primary" role="button">List Persons</a>
         <a href="/home/listPayments" class="btn btn-primary" role="button">List Payments</a>
     </div>
 </div>

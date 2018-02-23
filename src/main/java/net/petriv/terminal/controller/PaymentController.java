@@ -1,8 +1,10 @@
 package net.petriv.terminal.controller;
 
 import net.petriv.terminal.model.Payment;
+import net.petriv.terminal.model.Person;
 import net.petriv.terminal.model.User;
 import net.petriv.terminal.service.PaymentService;
+import net.petriv.terminal.service.PersonService;
 import net.petriv.terminal.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +28,8 @@ public class PaymentController {
     @Autowired
     PaymentService paymentService;
 
-
     @Autowired
-    UserServiceImpl userService;
+    PersonService personService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
@@ -45,9 +46,9 @@ public class PaymentController {
 
     @RequestMapping("edit/{id}")
     public ModelAndView editUser(@PathVariable("id") Long id, ModelAndView model) {
-        List<User> userList = userService.findAll();
+        List<Person> personList = personService.findAll();
         Payment payment = paymentService.findById(id);
-        model.addObject("userList", userList);
+        model.addObject("personList", personList);
         model.addObject(payment);
         model.setViewName("payment/editPaymentForm");
         return model;
@@ -56,17 +57,17 @@ public class PaymentController {
     @RequestMapping("/new")
     public ModelAndView newPayment(ModelAndView model) {
         Payment payment = new Payment();
-        List<User> userList = userService.findAll();
-        model.addObject("userList", userList);
+        List<Person> personList = personService.findAll();
+        model.addObject("personList", personList);
         model.addObject(payment);
         model.setViewName("payment/paymentForm");
         return model;
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveUser(@ModelAttribute Payment payment, @RequestParam("userId") String id) {
-        User user = userService.findById(Long.parseLong(id));
-        payment.setUser(user);
+    public String saveUser(@ModelAttribute Payment payment, @RequestParam("personId") String id) {
+        Person person = personService.findById(Long.parseLong(id));
+        payment.setPerson(person);
         paymentService.save(payment);
         return "redirect:/payment/list";
     }
